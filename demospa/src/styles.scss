@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+$styleVersion: 4.2;
+@import "~@spartacus/styles/index";
+@import "~@spartacus/cart/index";
+@import "~@spartacus/checkout/index";
+@import "~@spartacus/organization/index";
+@import "~@spartacus/product/bulk-pricing/index";
+@import "~@spartacus/storefinder/index";
+
+@import '~@spartacus/styles/scss/theme/santorini';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@include media-breakpoint-up(lg) {
+  body {
+    cx-page-layout.ProductDetailsPageTemplate cx-page-slot.Summary {
+      grid-template-rows: auto;
+    }
+    
+    //span all components on right side (we may have more than standard 6 due to product comparison)
+    cx-page-layout.ProductDetailsPageTemplate cx-page-slot.Summary cx-product-images {
+      grid-row: 1/span 10;
+    }
+  }
+}
+
+body {
+  cx-product-images > cx-media {
+    height: auto; //make sure image zoom is directly below in flexbox
+  }
+}
